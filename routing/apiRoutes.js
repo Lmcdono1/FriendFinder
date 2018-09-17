@@ -1,8 +1,5 @@
 //Pull data from array of possible pet matches and their scores
-var petData = require('../data/friends.js');
-//setup PORT
-var app = express();
-var PORT = process.env.PORT || 3000;
+var petData = require('../app/data/friends.js');
 //route to export of pet data
 module.exports = function(app){
 //call API for friends data
@@ -10,7 +7,7 @@ module.exports = function(app){
 		res.json(petData);
     });
 // user clicks on submit button and it calls the API server to determine the pet match   
-    app.post('/api/friends', function(req, res){
+app.post('/api/friends', function(req, res){
     //loop through the possible matches until a match is found -- for loop next step    
         var petMatch = {
 			name: "",
@@ -65,10 +62,4 @@ module.exports = function(app){
 	});
 		
 }
-
-// Starts the server to begin listening
-// =============================================================
-app.listen(PORT, function() {
-	console.log("App listening on PORT " + PORT);
-  });
 
