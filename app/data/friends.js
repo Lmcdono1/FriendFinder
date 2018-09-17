@@ -1,0 +1,89 @@
+var pets = [
+
+{
+    "name":"Puppy",
+    "photo":"https://cdn1-www.dogtime.com/assets/uploads/2011/03/puppy-development.jpg",
+    "scores":[
+        5,
+        1,
+        1,
+        2,
+        5,
+        5,
+        4,
+        4,
+        4,
+        5
+      ]
+  },
+
+  {
+    "name":"Kitty",
+    "photo":"http://r.ddmcdn.com/w_606/s_f/o_1/cx_0/cy_15/cw_606/ch_404/APL/uploads/2014/06/10-kitten-cuteness-1.jpg",
+    "scores":[
+        2,
+        5,
+        5,
+        1,
+        3,
+        1,
+        3,
+        3,
+        1,
+        3
+      ]
+  },
+
+  {
+    "name":"Birdie",
+    "photo":"https://www.thesprucepets.com/thmb/V_YLRlAIKfTutBEzmSYwyEJP7OU=/1975x1518/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-597187685-58ad8e7a3df78c345b864b4f.jpg",
+    "scores":[
+        1,
+        2,
+        5,
+        5,
+        3,
+        1,
+        1,
+        2,
+        1,
+        1
+      ]
+  },
+
+  {
+    "name":"Ferret",
+    "photo":"http://cloudwp.petage.com/wp-content/uploads/2017/08/ferret-670x412.jpg",
+    "scores":[
+        3,
+        3,
+        3,
+        5,
+        3,
+        1,
+        2,
+        3,
+        1,
+        1
+      ]
+  },
+
+  {
+    "name":"Goatie",
+    "photo":"https://www.babble.com/wp-content/uploads/2016/01/goats.png",
+    "scores":[
+        4,
+        2,
+        3,
+        5,
+        5,
+        5,
+        2,
+        2,
+        5,
+        1
+      ]
+  }
+]
+
+module.exports = pets;
