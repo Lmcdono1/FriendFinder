@@ -24,7 +24,7 @@ module.exports = function (app) {
 		// Variable set up to calculate the user score and possible pet score differences
 		var totalDifference = 0;
 
-		// Set up a for loop to go through each poddible pet 
+		// Set up a for loop to go through each possible pet 
 		for (var i = 0; i < petData.length; i++) {
 
 			//console.log(petData[i].name);
