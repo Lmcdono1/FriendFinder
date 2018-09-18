@@ -6,7 +6,8 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "window-location-origin": "^0.1.0"
   },
   "devDependencies": {},
   "scripts": {
