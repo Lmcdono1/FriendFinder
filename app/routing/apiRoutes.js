@@ -38,7 +38,7 @@ module.exports = function (app) {
 				totalDifference += Math.abs(petData[i].scores[a] - userData.scores[a]);
 				if (totalDifference <= petMatch.petDifference) {
 
-					//Setting up the new pet match
+					//Setting up the new pet match with corresponding data
 					petMatch.name = petData[i].name;
 					petMatch.photo = petData[i].photo;
 					petMatch.petDifference = totalDifference;
@@ -50,6 +50,7 @@ module.exports = function (app) {
 		petData.push(userData);
 		// petMatch.push(userName);
 		// petMatch.push(userPhoto);
+
 		// Return a JSON to HTML and show the users pet 
 		res.json(petMatch);
 		console.log(petMatch);
