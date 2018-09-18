@@ -6,26 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Pet Finder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--My CSS-->
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <!--Bootstrap & JQuery-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-        crossorigin="anonymous">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
 
     <div class="container">
+    <div class="panel-body">
+
+    <form role="form" id="friend-form">
         <h2>Find your perfect pet!</h2>
         <hr>
         <h3>About You</h3>
         <h4>Name (Required)</h4>
-        <input type="text" id="name" class="form-control" required>
+        <input type="text" id="name" class="form-control">
         <h4>Link to Photo Image (Required)</h4>
-        <input type="text" id="picture" class="form-control" required>
+        <input type="text" id="picture" class="form-control">
         <hr>
 
         <!--Questions-->
@@ -131,67 +132,71 @@
         </select>
         <br>
         <br>
-    <!--Submit Button-->
-    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="glyphicon glyphicons-mouse-middle-click" aria-hidden="true"></i> Meet your perfect pet!
-    </button>
-    <br>
-    <br>
-<!--Closing Container Tag-->
-</div>
+        <!--Submit Button-->
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
+            <i class="glyphicon glyphicons-mouse-middle-click" aria-hidden="true"></i> Meet your perfect pet!
+        </button>
+        <br>
+        <br>
+        <!--Closing Container Tag-->
+        </form>
+        </div>
+    </div>
     <!--Results Modal-->
     <div id="resultsModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-      
-              <!-- Modal content-->
-              <div class="modal-content">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h2 class="modal-title"><strong>Best Match</strong></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">
+                        <strong>Best Match</strong>
+                    </h2>
                 </div>
                 <div class="modal-body">
-                  <h2 id="petName"></h2>
-                  <img id="petImage" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+                    <h2 id="petName"></h2>
+                    <img id="petImage" src="">
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
-              </div>
             </div>
-          </div>
+        </div>
+    </div>
 
-<!--JQuery-->
-<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
-<!--Results JS-->
+    <!--JQuery
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>-->
+    <!--Results JS-->
 <script type="text/javascript">
-//When user clicks submit, show pet name and photo in modal
-    $('#submit').on("click", function() {
-        //set up variable for user info to be displayed on click
-		var userAnswer = {
-			name: $('#name').val().trim(),
-			photo: $('#photo').val().trim(),
-            scores: [$('#q1').val().trim(),
-            $('#q2').val().trim(), 
-            $('#q3').val().trim(), 
-            $('#q4').val().trim(), 
-            $('#q5').val().trim(), 
-            $('#q6').val().trim(), 
-            $('#q7').val().trim(), 
-            $('#q8').val().trim(), 
-            $('#q9').val().trim(), 
-            $('#q10').val().trim()]
-        }
-        //display info in the DOM
-		var petShow = window.location.origin;
-		$.post(petShow + '/api/friends', userAnswer, function(data) {
-			$("#petName").text(data.name);
-			$("#petImage").attr("src", data.photo);
-			$("#modal-content").modal("show");
-		});
-		return false;
-	});
+    //When user clicks submit,submit user data, goes through for loops to find total difference, then matches user with pet, pet info displayed in DOM
+    $("#submit").on("click", function () {
+    //set up variable for user info to be submitted on click
+    var userData = {
+        name: $('#name').val(),
+        photo: $('#picture').val(),
+        scores: [$('#q1').val(),
+        $('#q2').val(),
+        $('#q3').val(),
+        $('#q4').val(),
+        $('#q5').val(),
+        $('#q6').val(),
+        $('#q7').val(),
+        $('#q8').val(),
+        $('#q9').val(),
+        $('#q10').val()]
+    }
+    //does through for loop to find pet 
 
-
-</script>
+    //display pet match info in the DOM
+    var petShow = window.location.origin;
+    $.post(petShow + '/api/friends', userData, function (data) {
+        $("#petName").text(data.name);
+        $("#petImage").attr("src", data.photo);
+        $("#modal-content").modal('toggle');
+    });
+});
+    </script>
 
 </body>
 
