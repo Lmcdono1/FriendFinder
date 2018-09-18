@@ -12,7 +12,7 @@ module.exports = function (app) {
 		var petMatch = {
 			name: "",
 			photo: "",
-			petDifference: 0 //1000
+			petDifference: 0
 		};
 		//setup for loop to find the difference between the pet scores and user score
 
@@ -34,7 +34,7 @@ module.exports = function (app) {
 			for (var a = 0; a < petData[i].scores[a]; a++) {
 				// Calculate the user vs pet scores and then add the differences
 				// totalDifference += Math.abs(parseInt(userData[a]) - parseInt(petData[i].scores[a]));
-				// line 37 finding absolute number for difference https://stackoverflow.com/questions/9353929/get-the-absolute-value-of-a-number-in-javascript
+				// line 38 finding absolute number for difference https://stackoverflow.com/questions/9353929/get-the-absolute-value-of-a-number-in-javascript
 				totalDifference += Math.abs(petData[i].scores[a] - userData.scores[a]);
 				if (totalDifference <= petMatch.petDifference) {
 
